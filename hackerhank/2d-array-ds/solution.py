@@ -9,9 +9,7 @@ import sys
 def getSumHourglass(x_center, y_center, arr):
     return (arr[y_center][x_center] + 
         arr[y_center - 1][x_center] + arr[y_center - 1][x_center - 1] + arr[y_center - 1][x_center + 1] + 
-        arr[y_center + 1][x_center] + arr[y_center + 1][x_center - 1] + arr[y_center + 1][x_center + 1]);
-
-
+        arr[y_center + 1][x_center] + arr[y_center + 1][x_center - 1] + arr[y_center + 1][x_center + 1])
 
 # Complete the hourglassSum function below.
 def hourglassSum(arr):
