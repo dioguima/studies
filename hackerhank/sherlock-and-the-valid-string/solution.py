@@ -11,42 +11,36 @@ import collections
 def isValid(s):
     
     char_occurrences = dict(collections.Counter(s))
-    count_occurrences =  dict(collections.Counter(char_occurrences.values()))
-    
-    
-    if len(count_occurrences.items()) == 1: 
+    group_by_occurrences =  dict(collections.Counter(char_occurrences.values()))
+
+    if len(group_by_occurrences.items()) == 1: 
         return 'YES'
 
-    lowest_char_count = min(char_occurrences.values())
+    min_occurrences_char = min(char_occurrences.values())
 
-    print('lowest_char_count', lowest_char_count)
-    dictionary = dict(count_occurrences.items())
-    print(dictionary)
+    group_by_occurrences_dict = dict(group_by_occurrences.items())
     flag_change_arr = False
-    for k, occurrences in dictionary.items():
-        if int(k) == 1 and occurrences == 1:
+    for number, occurrences in group_by_occurrences_dict.items():
+        if int(number) == 1 and occurrences == 1:
             flag_change_arr = True
-            print('passou aqui')
             break
     
     if flag_change_arr:
-        array_values = list(count_occurrences.values())
+        array_values = list(group_by_occurrences_dict.values())
         array_values.remove(1)
-        lowest_char_count = min(array_values)
-        dictionary[1] = 0
-    print('lowest_char_count', lowest_char_count)
+        min_occurrences_char = min(array_values)
+        group_by_occurrences_dict[1] = 0
+
+    filtered_list = list(filter(lambda t: t[1] > 0, group_by_occurrences_dict.items()))
+    if len(filtered_list) == 1: 
+        return 'YES'
 
     flag_removed_used = False
-    for k, occurrences in count_occurrences.items():
-        print('k', k)        
-        print('occurrences', occurrences)        
-        print('flag_removed_used', flag_removed_used)
-        print()
-
-        if int(k) > lowest_char_count and k != lowest_char_count and occurrences != 0:
-            if occurrences > 1 or flag_removed_used or int(k) - lowest_char_count > 1:
+    for number, occurrences in group_by_occurrences_dict.items():
+        if int(number) > min_occurrences_char and occurrences != 0:
+            if flag_removed_used or occurrences > 1 or int(number) - min_occurrences_char > 1:
                 return 'NO'
-            elif occurrences == 1 and int(k) - lowest_char_count == 1:
+            elif occurrences == 1 and int(number) - min_occurrences_char == 1:
                 flag_removed_used = True
 
     return 'YES'
