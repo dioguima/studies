@@ -29,11 +29,9 @@ def substrCount(n, s):
             if letter != s[i + outset] and s[i + outset] == s[i - outset]:
                 if second_letter == None:
                     count_strings += 1
-                    print(s[i - outset:i + outset + 1], i, outset)
                     second_letter = s[i + outset]
                 elif s[i + outset] == second_letter and s[i - outset] == second_letter:
                     count_strings += 1
-                    print(s[i - outset:i + outset + 1], i, outset)
                 else:
                     break
             else:
