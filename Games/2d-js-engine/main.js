@@ -1,8 +1,10 @@
 import { Ball } from './ball.js';
+import {Physics} from './physics.js'
 
 var gForceVector;
 var lastFrameDateTime;
 var ball;
+var physics = new Physics();
 
 window.setup = function () {
 
@@ -12,7 +14,7 @@ window.setup = function () {
     noStroke();
     smooth();
 
-    ball = new Ball(10, 20, 20);
+    ball = new Ball(30, 250, 20);
 
 }
 
@@ -22,6 +24,8 @@ window.draw = function () {
 
     const deltaTime = (millis() - lastFrameDateTime) / 1000;
     lastFrameDateTime = millis();
+
+    physics.updateObject(ball, deltaTime);
 
     ball.draw();
 
