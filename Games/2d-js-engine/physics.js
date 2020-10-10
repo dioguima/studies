@@ -26,7 +26,7 @@ export class Physics{
     }
 
     #createGravityVector(deltaTime){
-        return createVector(0, 10 * deltaTime);
+        return createVector(0, (10 * deltaTime)/1000);
     }
 
 }

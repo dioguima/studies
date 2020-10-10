@@ -22,11 +22,11 @@ window.draw = function () {
     createCanvas(600, 600);
     background(220);
 
-    const deltaTime = (millis() - lastFrameDateTime) / 1000;
-    lastFrameDateTime = millis();
+    const currentMillis = millis()
+    const deltaTime = (currentMillis - lastFrameDateTime);
+    lastFrameDateTime = currentMillis;
 
     physics.updateObject(ball, deltaTime);
 
     ball.draw();
-
 }

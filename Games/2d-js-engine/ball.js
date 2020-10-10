@@ -7,7 +7,7 @@ export class Ball {
         this.x = x;
         this.y = y;
         this.mass = mass;
-        this.coefficientOfRestitution = coefficientOfRestitution || 0.5;
+        this.coefficientOfRestitution = coefficientOfRestitution || 0.7;
     }
 
     checkCollision(x, y){
