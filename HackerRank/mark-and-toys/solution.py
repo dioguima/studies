@@ -8,7 +8,16 @@ import sys
 
 # Complete the maximumToys function below.
 def maximumToys(prices, k):
-    
+    prices.sort()
+    i = 0
+    while k > 0:
+        if k - prices[i] > 0:
+            k -= prices[i]
+        else:
+            break
+        i += 1
+    return i
+
 
 if __name__ == '__main__':
 
