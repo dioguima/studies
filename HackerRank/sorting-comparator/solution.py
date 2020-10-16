@@ -7,7 +7,7 @@ class Player:
     def __repr__(self):
         return f'self.name self.score'
         
-    def comparator(a, b):
+    def comparator(self, a, b):
         if a.score == b.score:
             if a.name == b.name:
                 return 0
