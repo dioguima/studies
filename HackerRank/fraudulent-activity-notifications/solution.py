@@ -10,35 +10,33 @@ def getMedianEven(d):
     half_point_lower = int(d / 2)
     half_point_higher = half_point_lower - 1
     return lambda values: (values[half_point_lower] + values[half_point_higher]) / 2 
-    # half_point_lower = int(len(values) / 2)
-    # half_point_higher = int(len(values) / 2) + 1
-    # return (values[half_point_lower] + values[half_point_higher]) / 2
 
 def getMedianOdd(d):
     half_point = int(d / 2)
     return lambda values: values[half_point]
 
 def get_index_to_insert(arr, start, end, n_to_find):
-
-    
-    if end - start == 1:
-        if n_to_find > arr[start]:
-            return start + 1
-        else:
-            return start
-
-    middle = int((end - start) / 2)
     # print(f'start: {start}\nend: {end}\narr: {arr[start:end]}\nmiddle: {str(middle)}\n')
-    if n_to_find > arr[middle]:
-        return get_index_to_insert(arr, middle + 1, end, n_to_find)
+    
+    while end - start > 1:
+        half_chunk = int((end - start) / 2)
+        # print(f'{start} {start + half_chunk} {end}')
+        if n_to_find > arr[start + half_chunk]:
+            start += half_chunk + 1
+        else:
+            end -= half_chunk
+
+    if start < len(arr) and n_to_find > arr[start]:
+         return start + 1
     else:
-        return get_index_to_insert(arr, start, middle, n_to_find)
+        return start
 
 def insert_item_in_order(arr, number):
     # print(number)
-    index = get_index_to_insert(arr, 0, len(arr), number) - 1
+    index = get_index_to_insert(arr, 0, len(arr), number)
     
-    return arr[:-index] + [number] + arr[-index:]
+    # print(f'item to insert: {number}\nindex returned: {index}\nitem before: {arr[index - 1]}\nitem after: {arr[index + 1]}\npart arr: {arr[index-2:index+2]}\n')
+    return arr[:index] + [number] + arr[index:]
     # print(f'item to insert: {number}\nindex returned: {index}\nnew array: {arr}')
     # print('#####')
 
@@ -85,3 +83,5 @@ if __name__ == '__main__':
     result = activityNotifications(expenditure, d)
 
     print(str(result) + '\n')
+
+
