@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f108a7d4ec7ce046ac579970c661bce, type: 3}
+  m_Name: A1
+  m_EditorClassIdentifier: 
+  storyText: "Voc\xEA chega nos port\xF5es de uma cidade e se depara com dois guardas,
+    ao se aproximar da porta um dos guardas pergunta em alto tom: \n\nQuem \xE9 voc\xEA
+    e o que deseja fazer aqui?\n\t\r\n\t1. Sou um comerciante e busco descobertas
+    de novos produtos\r\n\t2. Sou um viajante e busco um local para passar a noite\r\n\t3.
+    Estou em busca de uma taverna para beber"
+  nextStates:
+  - {fileID: 11400000, guid: 17f8d2d8aee872b4bb4556a38861571d, type: 2}
