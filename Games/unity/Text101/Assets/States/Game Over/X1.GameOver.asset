@@ -12,12 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f108a7d4ec7ce046ac579970c661bce, type: 3}
   m_Name: X1.GameOver
   m_EditorClassIdentifier: 
-  storyText: 'Do you want to play again?
-
-
-    1. Yes
-
-    2. No'
+  storyText: "Voc\xEA quer jogar novamente?\n\n\t1. Sim\n\t2. N\xE3o"
   nextStates:
   - {fileID: 11400000, guid: b25d94fb1882b1f4584adc9a1e41d697, type: 2}
   - {fileID: 11400000, guid: f603721d4e6aab248b3cf4b1c9091bc9, type: 2}

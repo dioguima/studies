@@ -12,9 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f108a7d4ec7ce046ac579970c661bce, type: 3}
   m_Name: A0.Introduction
   m_EditorClassIdentifier: 
-  storyText: 'Welcome to the game
-
-
-    Enjoy !!!'
+  storyText: "Seja bem vindo o jogo\n\nAproveite !!!\n\nPrecione 1 para come\xE7ar"
   nextStates:
   - {fileID: 11400000, guid: b25d94fb1882b1f4584adc9a1e41d697, type: 2}
