@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class NumberWizard : MonoBehaviour {
@@ -8,29 +9,35 @@ public class NumberWizard : MonoBehaviour {
     int max = 1000;
     [SerializeField]
     int min = 1;
+    [SerializeField]
+    TextMeshProUGUI guessText;
+
     int guess = 500;
 
     // Use this for initialization
     void Start ()
     {
-        max += 1;
         NextGuess();
-	}
-	
+    }
+
     public void OnPressHigher()
     {
-        min = guess;
+        if (guess + 1 <= max)
+        {
+            min = guess + 1;
+        }
         NextGuess();
     }
 
     public void OnPressLower()
     {
-        max = guess;
+        max = guess - 1;
         NextGuess();
     }
 
     void NextGuess()
     {
-        guess = (max + min) / 2;
+        guess = Random.Range(min, max + 1);
+        guessText.text = guess.ToString();
     }
 }
